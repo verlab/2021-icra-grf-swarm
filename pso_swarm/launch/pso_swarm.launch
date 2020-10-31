@@ -1,0 +1,21 @@
+<launch>
+		<arg name="robots" default="150"/>
+		<arg name="groups" default="10"/>
+		<arg name="world" default="5"/>
+		<arg name="sensing" default="1.5"/>
+		<arg name="seed" default="1"/>
+		<arg name="log" default="true"/>
+		<arg name="gui" default="true"/>
+
+		<node name="$(anon pso_swarm)" pkg="pso_swarm" type="pso_swarm" output="screen">
+			<param name="nrobots" value="$(arg robots)"/>
+			<param name="ngroups" value="$(arg groups)"/>
+			<param name="sensing" value="$(arg sensing)"/>
+			<param name="worldsize" value="$(arg world)"/>
+			<param name="seed" value="$(arg seed)"/>
+			<param name="iterations" value="20000"/>
+			<param name="log" value="$(arg log)"/>
+			<param name="gui" value="$(arg gui)"/>
+        	<param name="swarmconf" type="str" command="python3 &quot;$(find pso_swarm)/world/generator.py&quot; --robots $(arg robots) --groups $(arg groups) --world $(arg world) --sensing $(arg sensing) --seed $(arg seed)"/>
+    	</node>
+</launch>
