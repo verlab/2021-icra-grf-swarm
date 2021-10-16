@@ -2,6 +2,17 @@
 
 Implementation of a decentralized coordination of autonomous swarms using Gibbs Random Field and Metropolis-Hastings sampling toward heterogeneous swarm segregation.
 
+## Cite this work
+```
+@inproceedings{rezeck2021flocking,
+  title={Flocking-Segregative Swarming Behaviors using {Gibbs} Random Fields},
+  author={Rezeck, Paulo and Assunção, Renato M. and Chaimowicz, Luiz},
+  booktitle={2021 IEEE International Conference on Robotics and Automation (ICRA)},
+  year={2021},
+  organization={IEEE}
+}
+```
+
 ## Dependecies
 
 -   [ROS Melodic](http://wiki.ros.org/melodic/Installation)
@@ -78,13 +89,4 @@ $ roslaunch vgs_swarm vgs_swarm.launch
   <img width="300" src="files/vgs_swarm.gif">
 </p>
 
-## Cite this work
-```
-@inproceedings{rezeck2021flocking,
-  title={Flocking-Segregative Swarming Behaviors using {Gibbs} Random Fields},
-  author={Rezeck, Paulo and Assunção, Renato M. and Chaimowicz, Luiz},
-  booktitle={2021 IEEE International Conference on Robotics and Automation (ICRA)},
-  year={2021},
-  organization={IEEE}
-}
-```
+
