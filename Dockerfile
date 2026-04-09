@@ -15,8 +15,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /catkin_ws
 
-# Catkin expects packages directly under src/
-COPY grf_swarm grad_swarm min_swarm pso_swarm vgs_swarm /catkin_ws/src/
+# Multiple COPY sources into one directory merge and overwrite files; each package must
+# live under src/<package_name>/ so rospack finds grf_swarm, grad_swarm, etc.
+RUN mkdir -p /catkin_ws/src && \
+    /bin/bash -c "source /opt/ros/melodic/setup.bash && \
+    cd /catkin_ws/src && catkin_init_workspace ."
+
+COPY grf_swarm /catkin_ws/src/grf_swarm/
+COPY grad_swarm /catkin_ws/src/grad_swarm/
+COPY min_swarm /catkin_ws/src/min_swarm/
+COPY pso_swarm /catkin_ws/src/pso_swarm/
+COPY vgs_swarm /catkin_ws/src/vgs_swarm/
 
 RUN /bin/bash -c "source /opt/ros/melodic/setup.bash && \
     cd /catkin_ws && catkin_make -DCMAKE_BUILD_TYPE=Release"
